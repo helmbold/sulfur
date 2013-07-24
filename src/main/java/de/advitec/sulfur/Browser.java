@@ -261,6 +261,7 @@ public class Browser {
    */
   public void close() {
     browser.quit();
+    browser = null;
   }
 
   /**
