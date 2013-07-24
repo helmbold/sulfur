@@ -31,6 +31,7 @@ already available on your machine.
 1. Create a directory for your Sulfur project.
 2. [Download FitNesse](http://fitnesse.org/FitNesseDownload) and put the fitnesse-standalone.jar file in the just created project directory.
 3. [Download Sulfur](https://github.com/helmbold/sulfur/tree/master/target) and put the sulfur-1.x-complete.jar in the project directory.
+4. Open a terminal, change into your project directory, and enter:
 
         java -jar fitnesse-standalone.jar
 This will create the basic wiki structure (when executed the first time) and start the wiki server.
