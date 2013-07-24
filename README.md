@@ -36,7 +36,7 @@ already available on your machine.
         java -jar fitnesse-standalone.jar
 This will create the basic wiki structure (when executed the first time) and start the wiki server.
 
-4. Open http://localhost/FrontPage?edit in your browser and replace the content with
+5. Open http://localhost/FrontPage?edit in your browser and replace the content with
 
         !define TEST_SYSTEM {slim} 
         !path *.jar
