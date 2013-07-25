@@ -3,3 +3,4 @@ target/generated-sources
 target/javadoc-bundle-options
 target/maven-archiver
 nb-configuration.xml
+nbactions.xml

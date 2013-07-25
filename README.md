@@ -1,9 +1,8 @@
 Sulfur
 ======
 
-*Selenium adapter for FitNesse - browser based GUI tests*
-
-Sulfur is a [FitNesse](http://fitnesse.org/) adapter using [Selenium](http://docs.seleniumhq.org/)
+Sulfur is a tool to easily write human readable browser based GUI tests. It is a 
+[FitNesse](http://fitnesse.org/) adapter using [Selenium](http://docs.seleniumhq.org/)
 under the hood. FitNesse is a wiki to write tests in a human readable way, and Selenium controls the
 browser.
 
