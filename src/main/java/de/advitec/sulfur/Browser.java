@@ -33,7 +33,7 @@ public class Browser {
    * To be able to use chrome, you have to download the ChromeDriver for your operating system, and 
    * set the environment variable 'webdriver.chrome.driver' pointing to your ChromeDriver 
    * executable.
-   * @param browserName 'firefox' or 'chrome'
+   * @param browserName 'firefox' or 'chrome'. Upper or lower case doesn't matter.
    */
   // TODO support other browsers
   public Browser(String browserName) {
@@ -75,6 +75,66 @@ public class Browser {
    */
   public void typeIn(String value, String element) {
     find(element).sendKeys(value);
+  }
+  
+  /**
+   * Selects a select box option by the visible text.
+   * Example: {@code | select text | some value | in | id:someElement | }
+   * @param value Value to be selected.
+   * @param element Locator of the element to be used.
+   * @see de.advitec.sulfur.Browser#find(java.lang.String)
+   */
+  public void selectTextIn(String value, String element) {
+    Select selectBox = new Select(find(element));
+    selectBox.selectByVisibleText(value);
+  }
+
+  /**
+   * Selects a select box option by key.
+   * Example: {@code | select value | someValue | in | id:someElement | }
+   * @param value Value of the value attribute of the option to be selected.
+   * @param element Locator of the element to be used.
+   * @see de.advitec.sulfur.Browser#find(java.lang.String)
+   */
+  public void selectValueIn(String value, String element) {
+    Select selectBox = new Select(find(element));
+    selectBox.selectByValue(value);
+  }
+ 
+  /**
+   * Selects a select box option by position.
+   * Example: {@code | select position | 0 | in | id:someElement | }
+   * @param index Index (starting at 0) of the of the option to be selected.
+   * @param element Locator of the element to be used.
+   * @see de.advitec.sulfur.Browser#find(java.lang.String)
+   */
+  public void selectPositionIn(int index, String element) {
+    Select selectBox = new Select(find(element));
+    selectBox.selectByIndex(index);
+  }
+
+  /**
+   * Pauses this fitnesse execution thread for x seconds.
+   * Example: {@code | pause | 10 | seconds |}
+   * @param seconds Duration.
+   */
+  public void pauseSeconds(int seconds) {
+    try {
+      Thread.sleep(seconds * 1000);
+    } catch (InterruptedException ex) {
+      Logger.getLogger(Browser.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+  
+  // TODO method to open modal dialoag in Browser to be able to attach debugger
+
+  /**
+   * Closes the browser.
+   * Example: {@code | close |}
+   */
+  public void close() {
+    browser.quit();
+    browser = null;
   }
 
   /**
@@ -144,16 +204,6 @@ public class Browser {
   }
 
   /**
-   * Checks whether the current url is the given url.
-   * Example: {@code | url is | http://example.com | }
-   * @param url Expected URL.
-   * @return true, if the expected URL equals the actual URL.
-   */
-  public boolean urlIs(String url) {
-    return browser.getCurrentUrl().equals(url);
-  }
-
-  /**
    * Checks whether the selected element has an attribute with the expected value.
    * Example: 
    * {@code | element | id:someElement | has attribute | someAttribute | with value | someValue | }
@@ -205,64 +255,18 @@ public class Browser {
   public boolean elementDoesNotExist(String element) {
     return !elementExists(element);
   }
-
-  /**
-   * Selects a select box option by the visible text.
-   * Example: {@code | select text | some value | in | id:someElement | }
-   * @param value Value to be selected.
-   * @param element Locator of the element to be used.
-   * @see de.advitec.sulfur.Browser#find(java.lang.String)
-   */
-  public void selectTextIn(String value, String element) {
-    Select selectBox = new Select(find(element));
-    selectBox.selectByVisibleText(value);
-  }
-
-  /**
-   * Selects a select box option by key.
-   * Example: {@code | select value | someValue | in | id:someElement | }
-   * @param value Value of the value attribute of the option to be selected.
-   * @param element Locator of the element to be used.
-   * @see de.advitec.sulfur.Browser#find(java.lang.String)
-   */
-  public void selectValueIn(String value, String element) {
-    Select selectBox = new Select(find(element));
-    selectBox.selectByValue(value);
-  }
- 
-  /**
-   * Selects a select box option by position.
-   * Example: {@code | select position | 0 | in | id:someElement | }
-   * @param index Index (starting at 0) of the of the option to be selected.
-   * @param element Locator of the element to be used.
-   * @see de.advitec.sulfur.Browser#find(java.lang.String)
-   */
-  public void selectPositionIn(int index, String element) {
-    Select selectBox = new Select(find(element));
-    selectBox.selectByIndex(index);
-  }
-
-  /**
-   * Pauses this fitnesse execution thread for x seconds.
-   * @param seconds Duration.
-   */
-  public void pauseSeconds(int seconds) {
-    try {
-      Thread.sleep(seconds * 1000);
-    } catch (InterruptedException ex) {
-      Logger.getLogger(Browser.class.getName()).log(Level.SEVERE, null, ex);
-    }
-  }
   
-  // TODO method to open modal dialoag in Browser to be able to attach debugger
-
   /**
-   * Closes the browser. 
+   * Checks whether the current url is the given url.
+   * Example: {@code | url is | http://example.com | }
+   * @param url Expected URL.
+   * @return true, if the expected URL equals the actual URL.
    */
-  public void close() {
-    browser.quit();
-    browser = null;
+  public boolean urlIs(String url) {
+    return browser.getCurrentUrl().equals(url);
   }
+
+  
 
   /**
    * Finds the WebElement by the given selector. This method is used internally wherever an 
@@ -271,7 +275,12 @@ public class Browser {
    * @param selector one of the following selector types
    * <table>
    *  <thead>
-   *    <tr><th>selector</th><th>description</th><th>example selector</th><th>matches</th></tr>
+   *    <tr>
+   *      <th>selector</th>
+   *      <th>description</th>
+   *      <th>example selector</th>
+   *      <th>matches example html</th>
+   *    </tr>
    *  </thead>
    *  <tbody>
    *    <tr>
@@ -319,7 +328,7 @@ public class Browser {
    *    <tr>
    *      <td>css</td>
    *      <td>CSS 3 selektor</td>
-   *      <td>css:#category button</td>
+   *      <td>css:.category button</td>
    *      <td>&lt;div class=&quot;category&quot;&gt;&lt;button 
    *        class=&quot;confirmation&quot;&gt;OK&lt;/button&gt;&lt;/div&gt;</td>
    *    </tr>
@@ -328,6 +337,8 @@ public class Browser {
    *
    * @return found element
    * @throws IllegalArgumentException if the specified element is not found.
+   * @see <a href="http://www.w3.org/TR/xpath/">XPath</a>
+   * @see <a href="http://www.w3.org/TR/css3-selectors/">CSS 3 Selectors</a>
    */
   public static WebElement find(String selector) {
     final String selectorValue = getSelectorValue(selector);

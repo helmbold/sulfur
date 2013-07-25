@@ -91,8 +91,108 @@ You are selecting certain elements of the html page with selectors. In the examp
 
 You can find all adapter methods with examples in the API docs.
 
-TODO
-----
-* describe installation of additional drivers (chrome ...)
-* list all adapter methods
-* explain selectors
+### Selectors
+
+To act on a certain html element, you need to express which element should be used. You do this with one of the following selectors. 
+<table>
+ <thead>
+   <tr>
+     <th>selector</th>
+     <th>description</th>
+     <th>example selector</th>
+     <th>matches example html</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>id</td>
+     <td>id attribute</td>
+     <td>id:loginButton</td>
+     <td>&lt;input type=&quot;submit&quot; id=&quot;loginButton&quot; /&gt;</td>
+   </tr>
+   <tr>
+     <td>name</td>
+     <td>name attribute</td>
+     <td>name:email</td><td>&lt;input type=&quot;text&quot; name=&quot;email&quot; /&gt;</td>
+   </tr>
+   <tr>
+     <td>tag</td>
+     <td>name of tag</td>
+     <td>tag:h1</th>
+     <td>&lt;h1&gt;Example&lt;/h1&gt;</td>
+   </tr>
+   <tr>
+     <td>link</td>
+     <td>link text</td>
+     <td>link:log in</td>
+     <td>&lt;a href=&quot;...&quot;&gt;log in&lt;/a&gt;</td>
+   </tr>
+   <tr>
+     <td>linkPart</td>
+     <td>part of the link text</td>
+     <td>linkPart:log</td>
+     <td>&lt;a href=&quot;...&quot;&gt;log in&lt;/a&gt;</td>
+   </tr>
+   <tr>
+     <td>class</td>
+     <td>css class attribute</td>
+     <td>class:auth</td>
+     <td>&lt;a href=&quot;...&quot; class=&quot;auth&quot; &gt;log in&lt;/a&gt;</td>
+   </tr>
+   <tr>
+     <td>xpath</td>
+     <td>expression to locate an xml element</td>
+     <td>xpath://input[@alt='Search']</td>
+     <td>&lt;input type=&quot;image&quot; 
+       src=&quot;some.gif&quot; alt=&quot;Search&quot; title=&quot;Search&quot;&gt;</td>
+   </tr>
+   <tr>
+     <td>css</td>
+     <td>CSS 3 selektor</td>
+     <td>css:.category button</td>
+     <td>&lt;div class=&quot;category&quot;&gt;&lt;button 
+       class=&quot;confirmation&quot;&gt;OK&lt;/button&gt;&lt;/div&gt;</td>
+   </tr>
+ </tbody>
+</table>
+
+<p><a href="http://www.w3.org/TR/xpath/">XPath</a> and 
+<a href="http://www.w3.org/TR/css3-selectors/">CSS 3 Selectors</a> are explained in detail on the 
+W3C website.</p>
+
+### Browser Adapter Methods
+
+You can control the browser with the following methods:
+
+    | browser | chrome |
+    | get             | http://example.com |
+    | click on        | id:someElement |
+    | type            | some value | in | id:someElement |
+    | select text     | some value | in | id:someElement |
+    | select value    | someValue | in | id:someElement |
+    | select position | 0 | in | id:someElement |
+    | pause           | 10 | seconds |
+    | title is        | some page title |
+    | element         | id:someElement | has text | some text |
+    | element         | id:someElement | is active |
+    | element         | id:someElement | is inactive |
+    | element         | id:someElement | is visible |
+    | element         | id:someElement | is invisible |
+    | url is          | http://example.com |
+    | element         | id:someElement | has attribute | someAttribute | with value | someValue |
+    | element         | id:someElement | has attribute | someAttribute | 
+    | element         | id:someElement | exists |
+    | element         | id:someElement | does not exist |
+    | close           |
+
+### Installing Additional Browser Drivers
+
+To be able to use other browsers than Firefox, you need to download the respective driver. The driver binaries needs to be placed somewhere on your system’s path. And of course you need the required browsers themselves.
+
+* Chrome: [docs](http://docs.seleniumhq.org/docs/03_webdriver.jsp#chrome-driver),  [driver download](https://code.google.com/p/chromedriver/downloads/list)
+* Internet Explorer: [docs](https://code.google.com/p/selenium/wiki/InternetExplorerDriver)
+* Opera: [docs](https://code.google.com/p/selenium/wiki/OperaDriver)
+* iPhone: [docs](https://code.google.com/p/selenium/wiki/IPhoneDriver)
+* Android: [docs](https://code.google.com/p/selenium/wiki/AndroidDriver)
+
+More information about [web drivers](http://docs.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-s-drivers).

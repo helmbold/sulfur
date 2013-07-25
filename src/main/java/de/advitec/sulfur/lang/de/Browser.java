@@ -55,6 +55,59 @@ public class Browser {
   public void schreibeIn(String wert, String element) {
     internalBrowser.typeIn(wert, element);
   }
+  
+  /**
+   * Wählt eine Option eines Auswahlfelds anhand des Texts aus. +
+   * Beispiel: {@code | wähle Text | eine Beschriftung | in | id:einElement | }
+   *
+   * @param text Auszuwählender Wert
+   * @param element Selektor auf das zu verwendende Element.
+   * @see de.advitec.sulfur.Browser#find(java.lang.String)
+   */
+  public void wähleTextIn(String text, String element) {
+    internalBrowser.selectTextIn(text, element);
+  }
+
+  /**
+   * Wählt eine Option eines Auswahlfelds anhand des Werts aus. 
+   * Beispiel: {@code | wähle Wert | ein Wert | in | id:einElement | }
+   *
+   * @param wert Wert der auszuwählenden Option.
+   * @param element Selektor auf das zu verwendende Element.
+   * @see de.advitec.sulfur.Browser#find(java.lang.String)
+   */
+  public void wähleWertIn(String wert, String element) {
+    internalBrowser.selectValueIn(wert, element);
+  }
+
+  /**
+   * Wählt eine Option eines Auswahlfelds anhand der Position aus.
+   * Beispiel: {@code | wähle Position | 0 | in | id:einElement | }
+   *
+   * @param index Index (beginnend bei 0) der auszuwählenden Option.
+   * @param element Selektor auf das zu verwendende Element.
+   * @see de.advitec.sulfur.Browser#find(java.lang.String)
+   */
+  public void wählePositionIn(int index, String element) {
+    internalBrowser.selectPositionIn(index, element);
+  }
+
+  /**
+   * Pausiert die Ausführung für x Sekunden.
+   * Beispiel: {@code | pausiere | 10 | Sekunde | }
+   * 
+   * @param sekunden Duration.
+   */
+  public void pausiereSekunden(int sekunden) {
+    internalBrowser.pauseSeconds(sekunden);
+  }
+
+  /**
+   * Schließt den Browser. Beispiel: {@code | schließe | }
+   */
+  public void schließen() {
+    internalBrowser.close();
+  }
 
   /**
    * Prüft den Seitentitel. Beispiel: {@code | Titel ist | Ein Seitentitel | }
@@ -187,58 +240,5 @@ public class Browser {
    */
   public boolean ElementExistiertNicht(String element) {
     return internalBrowser.elementDoesNotExist(element);
-  }
-
-  /**
-   * Wählt eine Option eines Auswahlfelds anhand des Texts aus. +
-   * Beispiel: {@code | wähle Text | eine Beschriftung | in | id:einElement | }
-   *
-   * @param text Auszuwählender Wert
-   * @param element Selektor auf das zu verwendende Element.
-   * @see de.advitec.sulfur.Browser#find(java.lang.String)
-   */
-  public void wähleTextIn(String text, String element) {
-    internalBrowser.selectTextIn(text, element);
-  }
-
-  /**
-   * Wählt eine Option eines Auswahlfelds anhand des Werts aus. 
-   * Beispiel: {@code | wähle Wert | ein Wert | in | id:einElement | }
-   *
-   * @param wert Wert der auszuwählenden Option.
-   * @param element Selektor auf das zu verwendende Element.
-   * @see de.advitec.sulfur.Browser#find(java.lang.String)
-   */
-  public void wähleWertIn(String wert, String element) {
-    internalBrowser.selectValueIn(wert, element);
-  }
-
-  /**
-   * Wählt eine Option eines Auswahlfelds anhand der Position aus.
-   * Beispiel: {@code | wähle Position | 0 | in | id:einElement | }
-   *
-   * @param index Index (beginnend bei 0) der auszuwählenden Option.
-   * @param element Selektor auf das zu verwendende Element.
-   * @see de.advitec.sulfur.Browser#find(java.lang.String)
-   */
-  public void wählePositionIn(int index, String element) {
-    internalBrowser.selectPositionIn(index, element);
-  }
-
-  /**
-   * Pausiert die Ausführung für x Sekunden.
-   * Beispiel: {@code | pausiere | 10 | Sekunde | }
-   * 
-   * @param sekunden Duration.
-   */
-  public void pausiereSekunden(int sekunden) {
-    internalBrowser.pauseSeconds(sekunden);
-  }
-
-  /**
-   * Schließt den Browser. Beispiel: {@code | schließe | }
-   */
-  public void schließen() {
-    internalBrowser.close();
   }
 }
