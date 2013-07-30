@@ -184,6 +184,8 @@ You can control the browser with the following methods:
     | element         | id:someElement | does not exist |
     | close           |
 
+German counterparts to the above methods can be found in the API docs.
+
 ### Installing Additional Browser Drivers
 
 To be able to use other browsers than Firefox, you need to download the respective driver. The driver binaries needs to be placed somewhere on your system’s path. And of course you need the required browsers themselves.
@@ -195,3 +197,6 @@ To be able to use other browsers than Firefox, you need to download the respecti
 * Android: [docs](https://code.google.com/p/selenium/wiki/AndroidDriver)
 
 More information about [web drivers](http://docs.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-s-drivers).
+
+
+Sulfur is brought to you by [ADVITEC Informatik GmbH](http://www.advitec.de/)
