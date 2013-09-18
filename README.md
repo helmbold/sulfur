@@ -29,7 +29,7 @@ already available on your machine.
 
 1. Create a directory for your Sulfur project.
 2. [Download FitNesse](http://fitnesse.org/FitNesseDownload) and put the fitnesse-standalone.jar file in the just created project directory.
-3. [Download Sulfur](https://github.com/helmbold/sulfur/tree/master/target) and put the sulfur-1.x-complete.jar in the project directory.
+3. [Download Sulfur](http://www.advitec.de/download/sulfur/sulfur-1.0-complete.jar) and put the sulfur-1.x-complete.jar in the project directory.
 4. Open a terminal, change into your project directory, and enter:
 
         java -jar fitnesse-standalone.jar
@@ -184,7 +184,7 @@ You can control the browser with the following methods:
     | element         | id:someElement | does not exist |
     | close           |
 
-German counterparts to the above methods can be found in the API docs.
+German counterparts to the above methods can be found in the [API docs](http://www.advitec.de/download/sulfur/apidocs/).
 
 ### Installing Additional Browser Drivers
 
