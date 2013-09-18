@@ -30,7 +30,7 @@ public class Browser {
    *
    * @param url URL, die im Browser geladen werden soll.
    */
-  public void lade(String url) {
+  public static void lade(String url) {
     internalBrowser.get(url);
   }
 
@@ -40,7 +40,7 @@ public class Browser {
    * @param element Selektor auf das zu verwendende Element. 
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void klickeAuf(String element) {
+  public static void klickeAuf(String element) {
     internalBrowser.clickOn(element);
   }
 
@@ -52,7 +52,7 @@ public class Browser {
    * @param element Selektor auf das zu verwendende Element.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void schreibeIn(String wert, String element) {
+  public static void schreibeIn(String wert, String element) {
     internalBrowser.typeIn(wert, element);
   }
   
@@ -64,7 +64,7 @@ public class Browser {
    * @param element Selektor auf das zu verwendende Element.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void wähleTextIn(String text, String element) {
+  public static void wähleTextIn(String text, String element) {
     internalBrowser.selectTextIn(text, element);
   }
 
@@ -76,7 +76,7 @@ public class Browser {
    * @param element Selektor auf das zu verwendende Element.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void wähleWertIn(String wert, String element) {
+  public static void wähleWertIn(String wert, String element) {
     internalBrowser.selectValueIn(wert, element);
   }
 
@@ -88,7 +88,7 @@ public class Browser {
    * @param element Selektor auf das zu verwendende Element.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void wählePositionIn(int index, String element) {
+  public static void wählePositionIn(int index, String element) {
     internalBrowser.selectPositionIn(index, element);
   }
 
@@ -98,14 +98,14 @@ public class Browser {
    * 
    * @param sekunden Duration.
    */
-  public void pausiereSekunden(int sekunden) {
+  public static void pausiereSekunden(int sekunden) {
     internalBrowser.pauseSeconds(sekunden);
   }
 
   /**
    * Schließt den Browser. Beispiel: {@code | schließe | }
    */
-  public void schließen() {
+  public static void schließen() {
     internalBrowser.close();
   }
 
@@ -115,7 +115,7 @@ public class Browser {
    * @param text Erwarteter Seitentitel.
    * @return true, wenn der tatsächliche dem erwarteten Seitentitel entspricht.
    */
-  public boolean TitelIst(String text) {
+  public static boolean TitelIst(String text) {
     return internalBrowser.titleIs(text);
   }
 
@@ -128,7 +128,7 @@ public class Browser {
    * @return true, wenn der tatsächliche dem erwarteten Text entspricht.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementHatText(String element, String text) {
+  public static boolean ElementHatText(String element, String text) {
     return internalBrowser.elementHasText(element, text);
   }
 
@@ -140,7 +140,7 @@ public class Browser {
    * @return true, wenn das Element aktiv ist.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementIstAktiv(String element) {
+  public static boolean ElementIstAktiv(String element) {
     return internalBrowser.elementIsActive(element);
   }
 
@@ -152,7 +152,7 @@ public class Browser {
    * @return true, wenn das Element inaktiv ist.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementIstInaktiv(String element) {
+  public static boolean ElementIstInaktiv(String element) {
     return internalBrowser.elementIsInactive(element);
   }
 
@@ -164,7 +164,7 @@ public class Browser {
    * @return true, wenn das Element sichtbar ist
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementIstSichtbar(String element) {
+  public static boolean ElementIstSichtbar(String element) {
     return internalBrowser.elementIsVisible(element);
   }
 
@@ -176,7 +176,7 @@ public class Browser {
    * @return true, wenn das Element unsichtbar ist.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementIstUnsichtbar(String element) {
+  public static boolean ElementIstUnsichtbar(String element) {
     return internalBrowser.elementIsInvisible(element);
   }
 
@@ -187,7 +187,7 @@ public class Browser {
    * @param url Erwartete Adresse.
    * @return true, wenn die Adresse übereinstimmt.
    */
-  public boolean AdresseIst(String url) {
+  public static boolean AdresseIst(String url) {
     return internalBrowser.urlIs(url);
   }
 
@@ -201,7 +201,7 @@ public class Browser {
    * @return true, wenn das Element ein Attribut mit dem erwarteten Wert hat.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementHatAttributMitWert(String element, String attribut, String wert) {
+  public static boolean ElementHatAttributMitWert(String element, String attribut, String wert) {
     return internalBrowser.elementHasAttributeWithValue(element, attribut, wert);
   }
 
@@ -214,7 +214,7 @@ public class Browser {
    * @return true, wenn das gewählte Element das gegebene Attribut hat.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementHatAttribut(String element, String attribut) {
+  public static boolean ElementHatAttribut(String element, String attribut) {
     return internalBrowser.elementHasAttribute(element, attribut);
   }
 
@@ -226,7 +226,7 @@ public class Browser {
    * @return true, wenn das Element existiert.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementExistiert(String element) {
+  public static boolean ElementExistiert(String element) {
     return internalBrowser.elementExists(element);
   }
 
@@ -238,7 +238,7 @@ public class Browser {
    * @return true, wenn das Element nicht existiert.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean ElementExistiertNicht(String element) {
+  public static boolean ElementExistiertNicht(String element) {
     return internalBrowser.elementDoesNotExist(element);
   }
 }

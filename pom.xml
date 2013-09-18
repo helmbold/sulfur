@@ -6,7 +6,7 @@
 
   <groupId>de.advitec</groupId>
   <artifactId>sulfur</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>sulfur</name>

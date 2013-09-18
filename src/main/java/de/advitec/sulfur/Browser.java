@@ -14,11 +14,12 @@ import org.openqa.selenium.support.ui.Select;
 /**
  * Controls an actual browser. Elements are selected by locator expressions as described at
  * {@link  #find(java.lang.String)} method.
+ * This class is not thread-safe.
  * @author Chelmbold
  */
 public class Browser {
 
-  public static WebDriver browser;
+  static WebDriver browser;
   private static final String INVALID_SELECTOR = "Invalid selector.";
 
   /**
@@ -52,7 +53,7 @@ public class Browser {
    * Example: {@code | get | http://example.com | }
    * @param url URL to be opened in the browser.
    */
-  public void get(String url) {
+  public static void get(String url) {
     browser.get(url.trim());
   }
 
@@ -73,7 +74,7 @@ public class Browser {
    * @param element Locator of the element to be used.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void typeIn(String value, String element) {
+  public static void typeIn(String value, String element) {
     find(element).sendKeys(value);
   }
   
@@ -84,7 +85,7 @@ public class Browser {
    * @param element Locator of the element to be used.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void selectTextIn(String value, String element) {
+  public static void selectTextIn(String value, String element) {
     Select selectBox = new Select(find(element));
     selectBox.selectByVisibleText(value);
   }
@@ -96,7 +97,7 @@ public class Browser {
    * @param element Locator of the element to be used.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void selectValueIn(String value, String element) {
+  public static void selectValueIn(String value, String element) {
     Select selectBox = new Select(find(element));
     selectBox.selectByValue(value);
   }
@@ -108,7 +109,7 @@ public class Browser {
    * @param element Locator of the element to be used.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public void selectPositionIn(int index, String element) {
+  public static void selectPositionIn(int index, String element) {
     Select selectBox = new Select(find(element));
     selectBox.selectByIndex(index);
   }
@@ -118,9 +119,9 @@ public class Browser {
    * Example: {@code | pause | 10 | seconds |}
    * @param seconds Duration.
    */
-  public void pauseSeconds(int seconds) {
+  public static void pauseSeconds(int seconds) {
     try {
-      Thread.sleep(seconds * 1000);
+      Thread.sleep(1000L * seconds);
     } catch (InterruptedException ex) {
       Logger.getLogger(Browser.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -132,7 +133,7 @@ public class Browser {
    * Closes the browser.
    * Example: {@code | close |}
    */
-  public void close() {
+  public static void close() {
     browser.quit();
     browser = null;
   }
@@ -143,7 +144,7 @@ public class Browser {
    * @param value Expected page title
    * @return true, if the page title equals the expected title.
    */
-  public boolean titleIs(String value) {
+  public static boolean titleIs(String value) {
     return browser.getTitle().equals(value);
   }
 
@@ -155,7 +156,7 @@ public class Browser {
    * @return true, if the element has the expected text.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementHasText(String element, String text) {
+  public static boolean elementHasText(String element, String text) {
     return find(element).getText().equals(text);
   }
 
@@ -166,7 +167,7 @@ public class Browser {
    * @return true, if the element is active.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementIsActive(String element) {
+  public static boolean elementIsActive(String element) {
     return find(element).isEnabled();
   }
 
@@ -177,7 +178,7 @@ public class Browser {
    * @return true, if the element is inactive
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementIsInactive(String element) {
+  public static boolean elementIsInactive(String element) {
     return !elementIsActive(element);
   }
 
@@ -188,7 +189,7 @@ public class Browser {
    * @return true, if the element is visible.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementIsVisible(String element) {
+  public static boolean elementIsVisible(String element) {
     return find(element).isDisplayed();
   }
   
@@ -199,7 +200,7 @@ public class Browser {
    * @return true, if the element is invisible.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementIsInvisible(String element) {
+  public static boolean elementIsInvisible(String element) {
     return !elementIsVisible(element);
   }
 
@@ -213,7 +214,7 @@ public class Browser {
    * @return true, if the element has an attribute with the expected value.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementHasAttributeWithValue(String element, String attribute, String value) {
+  public static boolean elementHasAttributeWithValue(String element, String attribute, String value) {
     return find(element).getAttribute(attribute).equals(value);
   }
 
@@ -225,7 +226,7 @@ public class Browser {
    * @return true, if the element has an attribute with the given name.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementHasAttribute(String element, String attribute) {
+  public static boolean elementHasAttribute(String element, String attribute) {
     return find(element).getAttribute(attribute) != null;
   }
 
@@ -236,7 +237,7 @@ public class Browser {
    * @return true, if the element exists.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementExists(String element) {
+  public static boolean elementExists(String element) {
     try {
       find(element);
       return true;
@@ -252,7 +253,7 @@ public class Browser {
    * @return true, if the element doesn't exist.
    * @see de.advitec.sulfur.Browser#find(java.lang.String)
    */
-  public boolean elementDoesNotExist(String element) {
+  public static boolean elementDoesNotExist(String element) {
     return !elementExists(element);
   }
   
@@ -262,7 +263,7 @@ public class Browser {
    * @param url Expected URL.
    * @return true, if the expected URL equals the actual URL.
    */
-  public boolean urlIs(String url) {
+  public static boolean urlIs(String url) {
     return browser.getCurrentUrl().equals(url);
   }
 

@@ -1,6 +1,4 @@
-target/classes
-target/generated-sources
-target/javadoc-bundle-options
-target/maven-archiver
+.idea/
 nb-configuration.xml
 nbactions.xml
+/target/
