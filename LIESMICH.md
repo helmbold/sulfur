@@ -8,17 +8,17 @@ Sulfur ist ein Werkzeug um einfach menschenlesbare Tests von Webanwendungen zu s
 
 Mit Sulfur können Sie automatisierte GUI-Tests in dieser Art schreiben:
 
-    !| script | Browser |
-    | get      | http://example.com/holidays |
-    | title is | Mein Urlaubsplaner |
-    | click on | id:datepicker|
-    | click on | xpath://a[@title='Weiter>'] |
-    | click on | link:8 |
-    | click on | id:submitButton|
-    | element  | id:missingNameMessage | is visible |
-    | element  | id:missingNameMessage | has text | Bitte geben Sie Ihren Namen ein |
-    | type     | Hans Meier | in | name:lastname |
-    | element  | id:missingNameMessage | is invisible |
+    !| script    | Browser |
+    | lade       | http://example.com/holidays |
+    | Titel ist  | Mein Urlaubsplaner |
+    | klicke auf | id:datepicker|
+    | klicke auf | xpath://a[@title='Weiter>'] |
+    | klicke auf | link:8 |
+    | klicke auf | id:submitButton|
+    | Element    | id:missingNameMessage | ist sichtbar |
+    | Element    | id:missingNameMessage | hat Text | Bitte geben Sie Ihren Namen ein |
+    | schreibe   | Hans Meier | in | name:lastname |
+    | Element    | id:missingNameMessage | ist unsichtbar |
 
 Installation
 ------------
@@ -173,7 +173,7 @@ Sie können den Browser mit folgenden Methoden steuern:
     | wähle Wert      | einWert | in | id:einElement |
     | wähle Position  | 0 | in | id:einElement |
     | pausiere        | 10 | Sekunden |
-    | Titel ist        | some page title |
+    | Titel ist       | Ein Seitentitel |
     | Element         | id:einElement | hat Text | ein Text |
     | Element         | id:einElement | ist aktiv |
     | Element         | id:einElement | ist inaktiv |
