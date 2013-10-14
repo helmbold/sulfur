@@ -1,3 +1,5 @@
+[German Version](LIESMICH.md)
+
 Sulfur
 ======
 
@@ -27,7 +29,7 @@ You need Java 7 to run Sulfur and FitNesse. So please [download and install
 Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK or JRE) if not 
 already available on your machine.
 
-1. Create a directory for your Sulfur project.
+1. Create a directory for your first Sulfur project.
 2. [Download FitNesse](http://fitnesse.org/FitNesseDownload) and put the fitnesse-standalone.jar file in the just created project directory.
 3. [Download Sulfur](http://www.advitec.de/download/sulfur/sulfur-1.0-complete.jar) and put the sulfur-1.x-complete.jar in the project directory.
 4. Open a terminal, change into your project directory, and enter:
@@ -35,13 +37,14 @@ already available on your machine.
         java -jar fitnesse-standalone.jar
 This will create the basic wiki structure (when executed the first time) and start the wiki server.
 
-5. Open http://localhost/FrontPage?edit in your browser and replace the content with
+5. Open http://localhost/FrontPage?edit in your browser and replace the content visible on the page with
 
         !define TEST_SYSTEM {slim} 
         !path *.jar
         !contents -R -g -p -f -h
+
 And click 'save'.
-The above configuration tells FitNesse to use the SLIM engine and where to look for libraries.
+The above configuration tells FitNesse to use the SLIM engine and where to look for libraries (like Sulfur).
 
 That's it! You can now start to write automated GUI tests.
 
@@ -65,7 +68,7 @@ If you want to write your tests in German, use `de.advitec.sulfur.lang.de` in th
 Writing Tests
 -------------
 
-Open http://localhost/FrontPage in your browser, and click on 'Add > Test page'. Give your page a meaningful name and write your test code into the content area.
+Open http://localhost/FrontPage in your browser, and click on 'Add > Test page'. Give your page a meaningful name and write your test code into the content area. Please note that FitNesse requires at least one upper case letter in the middle of the page name (example: MyTest).
 
 There are three kinds of adapters right now: Browser, List and Table. Example:
 
@@ -88,7 +91,7 @@ Click save. Now you can run your test page by clicking on the 'Test' button.
 
 You are selecting certain elements of the html page with selectors. In the example above the `id` selector is used to find elements by id. 
 
-You can find all adapter methods with examples in the API docs.
+You can find all adapter methods with examples in the [API docs](http://www.advitec.de/download/sulfur/apidocs/).
 
 ### Selectors
 
@@ -147,7 +150,7 @@ To act on a certain html element, you need to express which element should be us
    </tr>
    <tr>
      <td>css</td>
-     <td>CSS 3 selektor</td>
+     <td>CSS 3 selector</td>
      <td>css:.category button</td>
      <td>&lt;div class=&quot;category&quot;&gt;&lt;button 
        class=&quot;confirmation&quot;&gt;OK&lt;/button&gt;&lt;/div&gt;</td>
@@ -183,8 +186,6 @@ You can control the browser with the following methods:
     | element         | id:someElement | exists |
     | element         | id:someElement | does not exist |
     | close           |
-
-German counterparts to the above methods can be found in the [API docs](http://www.advitec.de/download/sulfur/apidocs/).
 
 ### Installing Additional Browser Drivers
 
