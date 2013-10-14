@@ -200,4 +200,4 @@ Mehr Informationen über [Browser-Treiber](http://docs.seleniumhq.org/docs/03_we
 
 Sulfur ist ein Geschenk von [ADVITEC Informatik GmbH](http://www.advitec.de/softwareentwicklung/start/)
 
-[Kontaktformular](http://www.advitec.de/cake/app/webroot/index.php) oder [mail@advitec.de](mail@advitec.de)
+[Kontaktformular](http://www.advitec.de/cake/app/webroot/index.php) oder [mail@advitec.de](mailto:mail@advitec.de)

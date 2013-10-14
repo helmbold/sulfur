@@ -201,4 +201,4 @@ More information about [web drivers](http://docs.seleniumhq.org/docs/03_webdrive
 
 Sulfur is brought to you by [ADVITEC Informatik GmbH](http://www.advitec.de/softwareentwicklung/start/)
 
-[contact form](http://www.advitec.de/cake/app/webroot/index.php) or [mail@advitec.de](mail@advitec.de)
+[contact form](http://www.advitec.de/cake/app/webroot/index.php) or [mail@advitec.de](mailto:mail@advitec.de)
