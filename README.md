@@ -199,5 +199,6 @@ To be able to use other browsers than Firefox, you need to download the respecti
 
 More information about [web drivers](http://docs.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-s-drivers).
 
-
 Sulfur is brought to you by [ADVITEC Informatik GmbH](http://www.advitec.de/softwareentwicklung/start/)
+
+[contact form](http://www.advitec.de/cake/app/webroot/index.php) or [mail@advitec.de](mail@advitec.de)

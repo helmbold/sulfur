@@ -199,3 +199,5 @@ Um andere Browser als Firefox nutzen zu können, müssen sie die entsprechenden 
 Mehr Informationen über [Browser-Treiber](http://docs.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-s-drivers).
 
 Sulfur ist ein Geschenk von [ADVITEC Informatik GmbH](http://www.advitec.de/softwareentwicklung/start/)
+
+[Kontaktformular](http://www.advitec.de/cake/app/webroot/index.php) oder [mail@advitec.de](mail@advitec.de)
